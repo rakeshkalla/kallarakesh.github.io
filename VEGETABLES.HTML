@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VeggieMart</title>
+    <style>
+        .veg-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .veg-item {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .veg-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vegetable Mart</h1>
+    <ul class="veg-list">
+        <li class="veg-item">
+            <img src="tomato.jpeg" alt="Tomato" class="veg-image">
+            <p>₹20/kg</p>
+            <b>Tomato</b><br>
+            <button class="add-to-cart" onclick="addToCart('Tomato', 20, 'tomato.jpeg')">Add to Cart</button>
+        </li>
+<li class="veg-item">
+            <img src="cucumber.jpeg" alt="Cucumber" class="veg-image">
+            <p>₹15/kg</p>
+            <b>Cucumber</b><br>
+            <button class="add-to-cart" onclick="addToCart('Cucumber', 15, 'cucumber.jpeg')">Add to Cart</button>
+        </li>
+
+        <li class="veg-item">
+            <img src="carrot.jpeg" alt="Carrot" class="veg-image">
+            <p>₹25/kg</p>
+            <b>Carrot</b><br>
+            <button class="add-to-cart" onclick="addToCart('Carrot', 25, 'carrot.jpeg')">Add to Cart</button>
+        </li>
+<li class="veg-item">
+            <img src="beetroot.jpeg" alt="beetroot" class="veg-image">
+            <p>₹30/kg</p>
+            <b>beetroot</b><br>
+            <button class="add-to-cart" onclick="addToCart('beetroot', 30, 'beetroot.jpeg')">Add to Cart</button>
+        </li>
+<li class="veg-item">
+            <img src="beans.jpeg" alt="beans" class="veg-image">
+            <p>₹15/kg</p>
+            <b>beans</b><br>
+            <button class="add-to-cart" onclick="addToCart('beans', 15, 'beans.jpeg')">Add to Cart</button>
+        </li>
+
+<li class="veg-item">
+            <img src="brinjal.jpeg" alt="brinjal" class="veg-image">
+            <p>₹35/kg</p>
+            <b>brinjal</b><br>
+            <button class="add-to-cart" onclick="addToCart('brinjal', 35, 'brinjal.jpeg')">Add to Cart</button>
+        </li>
+
+        <li class="veg-item">
+            <img src="potato.jpeg" alt="Potato" class="veg-image">
+            <p>₹15/kg</p>
+            <b>Potato</b><br>
+            <button class="add-to-cart" onclick="addToCart('Potato', 15, 'potato.jpeg')">Add to Cart</button>
+        </li>
+        <!-- Add more items as needed -->
+    </ul>
+    <script src="js/cart.js"></script>
+</body>
+</html>

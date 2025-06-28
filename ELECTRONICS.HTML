@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Electrical Tools Shopping</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			background-color: #f0f0f0;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.tools-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.tools-item {
+			margin: 20px;
+			width: 250px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.tools-item img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 20px;
+		}
+
+		.tools-item h3 {
+			margin-top: 10px;
+		}
+
+		.tools-item p {
+			margin-bottom: 10px;
+		}
+
+		.tools-item button {
+			background-color: #171715;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.tools-item button:hover {
+			background-color: #9b39a8;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<h1>Electrical Tools Shopping</h1>
+	</header>
+
+	<div class="tools-list">
+		<div class="tools-item">
+			<img src="drill.jpeg" alt="Drill">
+			<p><strong>Price: ₹650</strong></p>
+			<h3>Drill</h3>
+			<p>Powerful and efficient drill for various tasks.</p>
+			<button onclick="addToCart('Drill', 650, 'drill.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="wrench.jpeg" alt="Wrench">
+			<p><strong>Price: ₹500</strong></p>
+			<h3>Wrench</h3>
+			<p>High-quality wrench for tightening and loosening bolts.</p>
+			<button onclick="addToCart('Wrench', 500, 'wrench.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="saw.jpeg" alt="Saw">
+			<p><strong>Price: ₹340</strong></p>
+			<h3>Saw</h3>
+			<p>High-precision saw for cutting through various materials.</p>
+			<button onclick="addToCart('Saw', 340, 'saw.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="screws.jpeg" alt="Screws">
+			<p><strong>Price: ₹200</strong></p>
+			<h3>Screws</h3>
+			<p>Used to hold things together or lift objects.</p>
+			<button onclick="addToCart('Screws', 200, 'screws.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="screwdrivers.jpeg" alt="Screw Driver">
+			<p><strong>Price: ₹120</strong></p>
+			<h3>Screw Driver</h3>
+			<p>Useful to tighten screws.</p>
+			<button onclick="addToCart('Screw Driver', 120, 'screwdrivers.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="pliers.jpeg" alt="Pliers">
+			<p><strong>Price: ₹230</strong></p>
+			<h3>Pliers</h3>
+			<p>Used for gripping, bending, and cutting.</p>
+			<button onclick="addToCart('Pliers', 230, 'pliers.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="testerr.jpeg" alt="Tester">
+			<p><strong>Price: ₹70</strong></p>
+			<h3>Tester</h3>
+			<p>Detect voltage and ensure safe repairs.</p>
+			<button onclick="addToCart('Tester', 70, 'testerr.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="tape.jpeg" alt="Tape Measure">
+			<p><strong>Price: ₹170</strong></p>
+			<h3>Tape Measure</h3>
+			<p>Used to measure lengths accurately.</p>
+			<button onclick="addToCart('Tape Measure', 170, 'tape.jpeg')">Add to Cart</button>
+		</div>
+
+		<div class="tools-item">
+			<img src="fishtape.jpeg" alt="Fish Tape">
+			<p><strong>Price: ₹270</strong></p>
+			<h3>Fish Tape</h3>
+			<p>Pull wires through conduits.</p>
+			<button onclick="addToCart('Fish Tape', 270, 'fishtape.jpeg')">Add to Cart</button>
+		</div>
+	</div>
+
+	<!-- Link to cart logic -->
+	<script src="js/cart.js"></script>
+</body>
+</html>

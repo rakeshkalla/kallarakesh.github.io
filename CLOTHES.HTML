@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Clothes Shopping</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			background-color: #f0f0f0;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.clothes-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.clothes-item {
+			margin: 20px;
+			width: 250px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.clothes-item img {
+			width: 100px;
+			height: 100px;
+			object-fit: cover;
+			border-radius: 20px;
+		}
+
+		.clothes-item h3 {
+			margin-top: 10px;
+		}
+
+		.clothes-item p {
+			margin-bottom: 20px;
+		}
+
+		.clothes-item button {
+			background-color: #f0e505;
+			color: black;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.clothes-item button:hover {
+			background-color: #b573b6;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<h1>Clothes Shopping</h1>
+	</header>
+
+	<div class="clothes-list">
+		<div class="clothes-item">
+			<img src="tshirt.jpeg" alt="Men's T-Shirt">
+			<p><strong>Price: ₹350</strong></p>
+			<h3>Men's T-Shirt</h3>
+			<button onclick="addToCart('Men\'s T-Shirt', 350, 'tshirt.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+
+		<div class="clothes-item">
+			<img src="pants.jpeg" alt="Track Pants">
+			<p><strong>Price: ₹420</strong></p>
+			<h3>Track Pants</h3>
+			<button onclick="addToCart('Track Pants', 420, 'pants.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+
+		<div class="clothes-item">
+			<img src="hoodie.jpeg" alt="Hoodie">
+			<p><strong>Price: ₹340</strong></p>
+			<h3>Hoodie</h3>
+			<button onclick="addToCart('Hoodie', 340, 'hoodie.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+
+		<div class="clothes-item">
+			<img src="kurti.jpeg" alt="Kurti">
+			<p><strong>Price: ₹200</strong></p>
+			<h3>Kurti</h3>
+			<button onclick="addToCart('Kurti', 200, 'kurti.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+
+		<div class="clothes-item">
+			<img src="lehanga.jpeg" alt="Lehenga">
+			<p><strong>Price: ₹120</strong></p>
+			<h3>Lehenga</h3>
+			<button onclick="addToCart('Lehenga', 120, 'lehanga.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+
+		<div class="clothes-item">
+			<img src="suit.jpeg" alt="Men's Suit">
+			<p><strong>Price: ₹230</strong></p>
+			<h3>Men's Suit</h3>
+			<button onclick="addToCart('Men\'s Suit', 230, 'suit.jpeg')"><strong>Add to Cart</strong></button>
+		</div>
+	</div>
+
+	<!-- Link your cart.js script -->
+	<script src="js/cart.js"></script>
+</body>
+</html>

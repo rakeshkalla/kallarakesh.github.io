@@ -1,0 +1,67 @@
+<head>
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .payment-box {
+            width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-input {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-button {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        .payment-button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-box">
+        <h2>Payment Information</h2>
+        <form id="payment-form">
+            <label for="card-holder-name">Card Holder Name:</label>
+            <input type="text" id="card-holder-name" class="payment-input" required>
+            <br><br>
+            <label for="card-number">Card Number:</label>
+            <input type="tel" id="card-number" pattern="[0-9]{13,16}" class="payment-input" required>
+            <br><br>
+            <label for="expiration-date">Expiration Date:</label>
+            <input type="tel" id="expiration-date" class="payment-input" required>
+            <br><br>
+            <label for="cvv">CVV:</label>
+            <input type="tel" id="cvv" pattern="[0-9]{3}" class="payment-input" required>
+            <br><br>
+            <input type="submit" class="payment-button" value="Make Payment">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = 'thankyou.html'; // Redirect to thank you page
+        });
+    </script>
+</body>
+</html>

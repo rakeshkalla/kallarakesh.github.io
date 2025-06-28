@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Grocery Central</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-items {
+            background-color: #444;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav-items a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        .checkout-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkout-form h3 {
+            grid-column: 1 / -1;
+            margin-bottom: 1rem;
+        }
+
+        #shipping-form {
+            grid-column: 1;
+        }
+
+        #order-summary {
+            grid-column: 2;
+            border: 1px solid #eee;
+            padding: 1rem;
+        }
+
+        .checkout-total {
+            grid-column: 1 / -1;
+            text-align: right;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-button {
+            grid-column: 1 / -1;
+            display: block;
+            width: 100%;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem 0;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .payment-button:hover {
+            background-color: #218838;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Grocery Central</a>
+        <nav class="nav-items">
+            <a href="homepage.html">Home</a>
+            <a href="fruits.html">Fruits</a>
+            <a href="vegetables.html">Vegetables</a>
+            <a href="clothes.html">Clothes</a>
+            <a href="electronics.html">Electronics</a>
+            <a href="signin.html">Sign In</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="checkout-form">
+            <h3>Shipping Information</h3>
+            <form id="shipping-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">Pin Code:</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+            </form>
+
+            <h3>Order Summary</h3>
+            <div id="order-summary">
+                <!-- Items will be added dynamically here -->
+            </div>
+
+            <div class="checkout-total">
+                <strong>Total: ₹<span id="checkout-total-price">0.00</span></strong>
+            </div>
+
+            <a href="payment.html" class="payment-button">Proceed to Payment</a>
+        </div>
+    </main>
+
+    <footer class="footer" style="text-align: center; padding: 10px; background-color: #333; color: white;">
+        <p>&copy; 2024 Grocery Central</p>
+    </footer>
+
+    <script>
+        const orderSummary = document.getElementById("order-summary");
+        const totalSpan = document.getElementById("checkout-total-price");
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = 0;
+
+        if (cart.length === 0) {
+            orderSummary.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Price: ₹${item.price}</p>
+                    <hr>
+                `;
+                orderSummary.appendChild(div);
+            });
+
+            totalSpan.innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

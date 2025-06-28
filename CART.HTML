@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - EazyShop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-right: 20px;
+      border-radius: 10px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-total {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      font-size: 18px;
+      margin-top: 20px;
+      text-align: right;
+      border-radius: 5px;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .checkout-btn:hover {
+      background-color: #3e8e41;
+    }
+
+    .remove-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    .remove-btn:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+      Total: ₹<span id="cart-total-price">0.00</span>
+    </div>
+
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+  </div>
+
+  <script>
+    const cartContainer = document.getElementById("cart-items");
+    const totalPriceSpan = document.getElementById("cart-total-price");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
+
+    function renderCart() {
+      cartContainer.innerHTML = "";
+      total = 0;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalPriceSpan.textContent = "0.00";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-info">
+            <h3>${item.name}</h3>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Price: ₹${item.price}</p>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartContainer.appendChild(div);
+      });
+
+      totalPriceSpan.textContent = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1); // Remove 1 item at this index
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Initial render
+    renderCart();
+  </script>
+</body>
+</html>
